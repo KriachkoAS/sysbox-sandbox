@@ -1,0 +1,6 @@
+services:
+  sandbox:
+    build: .
+    runtime: sysbox-runc
+    ports:
+      - 50022:22
