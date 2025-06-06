@@ -4,3 +4,6 @@ services:
     runtime: sysbox-runc
     ports:
       - 50022:22
+    volumes:
+      - ${WORKSPACE_PATH:?set WORKSPACE_PATH}:/home/admin/workspace
+    command: chown admin /home/admin/workspace
