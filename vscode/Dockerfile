@@ -74,6 +74,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y openssh-server 
 RUN rm -r /etc/ssh
 COPY ./ssh-keys/sandbox /etc/ssh
 
+# Configure ssh authorized_keys
+COPY --chown=admin:admin ./ssh-keys/client/id_ecdsa.pub /home/admin/.ssh/authorized_keys
+
 EXPOSE 22
 
 # Set systemd as entrypoint.
