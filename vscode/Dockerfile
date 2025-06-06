@@ -70,6 +70,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y openssh-server 
     && mkdir /home/admin/.ssh \
     && chown admin:admin /home/admin/.ssh
 
+# Configure Sshd
+RUN rm -r /etc/ssh
+COPY ./ssh-keys/sandbox /etc/ssh
+
 EXPOSE 22
 
 # Set systemd as entrypoint.
