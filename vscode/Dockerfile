@@ -15,7 +15,8 @@ RUN apt-get update &&                            \
             kmod                                 \
             locales                              \
             sudo                                 \
-            udev &&                              \
+            udev                                 \
+            wget &&                              \
                                                  \
     # Prevents journald from reading kernel messages from /dev/kmsg
     echo "ReadKMsg=no" >> /etc/systemd/journald.conf &&               \
@@ -73,3 +74,13 @@ EXPOSE 22
 
 # Set systemd as entrypoint.
 ENTRYPOINT [ "/sbin/init", "--log-level=err" ]
+
+
+FROM docker-ssh as vscode
+
+ARG VSCODE_COMMIT
+USER admin
+RUN wget https://update.code.visualstudio.com/commit:${VSCODE_COMMIT:?specify VSCODE_COMMIT}/server-linux-x64/stable -P /tmp/vscode-server-install \
+    && tar -xf stable --strip-components 1 -C ~/.vscode-server/cli/servers/Stable-${VSCODE_COMMIT}/server                                         \
+    && rm -r /tmp/vscode-server-install
+USER root

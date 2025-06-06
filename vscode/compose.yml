@@ -1,6 +1,9 @@
 services:
   sandbox:
-    build: .
+    build:
+      context: .
+      args:
+        - VSCODE_COMMIT=${VSCODE_COMMIT}
     runtime: sysbox-runc
     ports:
       - 50022:22
