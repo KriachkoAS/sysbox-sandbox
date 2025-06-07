@@ -6,6 +6,7 @@ else
 fi
 vscode_commit=$(code --no-sandbox --user-data-dir /tmp -v | sed -n '2p')
 compose_path="/some/path"
+
 WORKSPACE_PATH=$path \
 VSCODE_COMMIT=$vscode_commit \
 docker compose \
