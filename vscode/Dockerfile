@@ -1,4 +1,4 @@
-FROM ubuntu:noble as systemd
+FROM debian:latest as systemd
 
 #
 # Systemd installation
