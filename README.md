@@ -10,5 +10,5 @@ specific workspace, script for easy start and Ssh configuration consistance.
 Usage quite complicated and probably longer to describe then rewrite project, so simplified version:
   - rewrite Dockerfile by commenting new parts and uncomment them back as you ready to check them
   - copy `/etc/ssh` from working sandbox for use as consistent fingerprint
-  - config Ssh client to use sanndbox with the same key that is added to auhtentic ones
+  - config Ssh client to use sandbox with the same key that is added to auhtentic ones
   - add rewrited `run.sh` script to any folder in `$PATH` and run it with Sudo
