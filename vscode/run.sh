@@ -13,12 +13,6 @@ HOME_DIR=$home_dir \
 WORKSPACE_PATH=$path \
 VSCODE_COMMIT=$vscode_commit \
 docker compose \
-	-f $compose_path
-	build
-
-HOME_DIR=$home_dir \
-WORKSPACE_PATH=$path \
-VSCODE_COMMIT=$vscode_commit \
-docker compose \
 	-f $compose_path \
-	up
+	up \
+	--build sandbox
