@@ -9,4 +9,8 @@ services:
       - 50022:22
     volumes:
       - ${WORKSPACE_PATH:?set WORKSPACE_PATH}:/home/admin/workspace
+      - type: bind
+        source: ${HOME_DIR}/.gitconfig
+        target: /home/admin/.gitconfig
+        read_only: true
     command: chown admin /home/admin/workspace
